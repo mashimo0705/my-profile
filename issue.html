@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI計算ツール</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #fff;
+      padding: 24px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+      width: 320px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 24px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>BMI計算ツール</h1>
+
+  <label for="height">身長(cm)</label>
+  <input type="number" id="height" placeholder="例：170">
+
+  <label for="weight">体重(kg)</label>
+  <input type="number" id="weight" placeholder="例：60">
+
+  <button id="calcBtn">計算する</button>
+
+  <p id="result"></p>
+</div>
+
+<script>
+const heightInput = document.getElementById("height");
+const weightInput = document.getElementById("weight");
+const result = document.getElementById("result");
+const calcBtn = document.getElementById("calcBtn");
+
+calcBtn.addEventListener("click", function () {
+
+  const height = Number(heightInput.value);
+  const weight = Number(weightInput.value);
+
+  if (height <= 0 || weight <= 0 || isNaN(height) || isNaN(weight)) {
+    result.textContent = "身長(cm)と体重(kg)を0より大きい半角数字で入力してから、もう一度計算してください。";
+    return;
+  }
+
+  const heightM = height / 100;
+  const bmi = weight / (heightM * heightM);
+
+  let judge = "";
+
+  if (bmi < 18.5) {
+    judge = "痩せ型";
+  } else if (bmi < 25) {
+    judge = "普通";
+  } else {
+    judge = "肥満";
+  }
+
+  result.textContent =
+    `BMI：${bmi.toFixed(1)}\n判定：${judge}`;
+});
+</script>
+
+</body>
+</html>
