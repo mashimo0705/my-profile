@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Bean Route</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Tailwind CDN（仕様に合わせて） -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* 仕様のフォント */
+    body {
+      font-family: "Noto Sans JP", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    /* メインビジュアル背景 */
+    .hero {
+      background-image: url("./images/hero.jpg");
+      background-size: cover;      /* 余白なく全体に広がる */
+      background-position: center;
+      height: 400px;               /* 高さ固定 */
+    }
+    /* カードのホバー演出 */
+    .cafe-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .cafe-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.12);
+    }
+  </style>
+</head>
+<body class="bg-paper text-ink">
+
+  <!-- ヘッダー（固定） -->
+  <header class="fixed top-0 left-0 right-0 bg-paper/90 backdrop-blur border-b border-sub z-50">
+    <div class="max-w-[1120px] mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="font-bold text-lg text-brand">Bean Route</div>
+      <nav class="flex gap-6 text-sm">
+        <a href="#cafes" class="hover:text-brand">CAFE LIST</a>
+        <a href="#about" class="hover:text-brand">ABOUT</a>
+        <a href="#contact" class="hover:text-brand">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- コンテンツ全体（ヘッダー分の余白） -->
+  <main class="pt-20">
+    <!-- メインビジュアル -->
+    <section class="hero flex items-center">
+      <div class="max-w-[1120px] mx-auto px-4 text-white">
+        <h1 class="text-3xl md:text-4xl font-bold drop-shadow">
+          Bean Route
+        </h1>
+        <p class="mt-3 text-sm md:text-base drop-shadow">
+          自家焙煎からスペシャルティまで、いま行きたい9軒
+        </p>
+      </div>
+    </section>
+
+    <!-- カフェ一覧 -->
+    <section id="cafes" class="max-w-[1120px] mx-auto px-4 py-10">
+      <h2 class="text-xl font-bold mb-2">CAFE LIST</h2>
+      <p class="text-sub text-sm mb-4">今週のおすすめ一覧です</p>
+
+      <!-- カテゴリタブ -->
+      <div class="flex flex-wrap gap-2 mb-6 text-sm">
+        <button class="tab-btn px-3 py-1 rounded-full border border-sub bg-brand text-white"
+                data-category="all">
+          すべて
+        </button>
+        <button class="tab-btn px-3 py-1 rounded-full border border-sub bg-paper"
+                data-category="specialty">
+          スペシャルティ
+        </button>
+        <button class="tab-btn px-3 py-1 rounded-full border border-sub bg-paper"
+                data-category="roast">
+          自家焙煎
+        </button>
+        <button class="tab-btn px-3 py-1 rounded-full border border-sub bg-paper"
+                data-category="sweets">
+          スイーツ自慢
+        </button>
+      </div>
+
+      <!-- エラーメッセージ（data.json失敗時） -->
+      <p id="data-error" class="text-red-600 text-sm mb-4 hidden">
+        カフェ情報の読み込みに失敗しました。
+      </p>
+
+      <!-- カード一覧 -->
+      <div id="cafe-list"
+           class="grid gap-6 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
+        <!-- JSで埋める -->
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="max-w-[1120px] mx-auto px-4 py-10 border-t border-sub">
+      <h2 class="text-xl font-bold mb-2">ABOUT</h2>
+      <p class="text-sm leading-relaxed">
+        Bean Route は、豆の生産や焙煎の様子まで丁寧に伝えるお店だけを掲載。
+        気になるカフェを探してみてください。
+      </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="max-w-[1120px] mx-auto px-4 py-10 border-t border-sub">
+      <h2 class="text-xl font-bold mb-4">CONTACT</h2>
+
+      <form id="contact-form" class="space-y-4 max-w-xl">
+        <div>
+          <label class="block text-sm mb-1" for="name">お名前</label>
+          <input id="name" name="name" type="text"
+                 class="w-full border border-sub rounded px-3 py-2 text-sm bg-paper">
+          <p id="name-error" class="text-red-600 text-xs mt-1"></p>
+        </div>
+
+        <div>
+          <label class="block text-sm mb-1" for="email">メールアドレス</label>
+          <input id="email" name="email" type="email"
+                 class="w-full border border-sub rounded px-3 py-2 text-sm bg-paper">
+          <p id="email-error" class="text-red-600 text-xs mt-1"></p>
+        </div>
+
+        <div>
+          <label class="block text-sm mb-1" for="subject">ご用件</label>
+          <select id="subject" name="subject"
+                  class="w-full border border-sub rounded px-3 py-2 text-sm bg-paper">
+            <option value="">選択してください</option>
+            <option value="question">ご質問</option>
+            <option value="request">掲載のご相談</option>
+            <option value="other">その他</option>
+          </select>
+          <p id="subject-error" class="text-red-600 text-xs mt-1"></p>
+        </div>
+
+        <div>
+          <label class="block text-sm mb-1" for="message">お問い合わせ内容</label>
+          <textarea id="message" name="message" rows="4"
+                    class="w-full border border-sub rounded px-3 py-2 text-sm bg-paper"></textarea>
+          <p id="message-error" class="text-red-600 text-xs mt-1"></p>
+        </div>
+
+        <button type="submit"
+                class="mt-2 px-6 py-2 rounded bg-brand text-white text-sm font-semibold">
+          送信する
+        </button>
+      </form>
+    </section>
+
+    <footer class="mt-8 py-6 text-center text-xs text-sub border-t border-sub">
+      © 2026 Bean Route
+    </footer>
+  </main>
+
+  <script src="./script.js"></script>
+</body>
+</html>
