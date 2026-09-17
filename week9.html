@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ユーザー登録フォーム</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+
+  <div class="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
+    <h1 class="text-2xl font-bold mb-4 text-center">ユーザー登録</h1>
+
+    <!-- フィードバックメッセージ -->
+    <div id="feedback" class="mb-4 text-center text-sm"></div>
+
+    <form id="registerForm" novalidate>
+      <!-- 名前 -->
+      <label class="block mb-4">
+        <span class="text-gray-700 font-medium">名前</span>
+        <input
+          id="name"
+          type="text"
+          required
+          class="mt-1 block w-full border rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+        />
+      </label>
+
+      <!-- メール -->
+      <label class="block mb-4">
+        <span class="text-gray-700 font-medium">メールアドレス</span>
+        <input
+          id="email"
+          type="email"
+          required
+          class="mt-1 block w-full border rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+        />
+      </label>
+
+      <!-- パスワード -->
+      <label class="block mb-4">
+        <span class="text-gray-700 font-medium">パスワード（8文字以上）</span>
+        <input
+          id="password"
+          type="password"
+          required
+          class="mt-1 block w-full border rounded-md p-2 focus:ring-blue-500 focus:border-blue-500"
+        />
+      </label>
+
+      <!-- 利用規約 -->
+      <label class="flex items-center mb-6">
+        <input id="terms" type="checkbox" required class="mr-2" />
+        <span class="text-gray-700">利用規約に同意する</span>
+      </label>
+
+      <button
+        type="submit"
+        class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+      >
+        登録する
+      </button>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("registerForm");
+    const feedback = document.getElementById("feedback");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault(); // ブラウザの自動送信を止める
+
+      // 入力値取得
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const terms = document.getElementById("terms").checked;
+
+      // エラーをまとめて表示する方式
+      const errors = [];
+
+      if (!name) errors.push("名前を入力してください");
+      if (!email) {
+        errors.push("メールアドレスを入力してください");
+      } else if (!email.includes("@")) {
+        errors.push("メールアドレスの形式が正しくありません（@が必要）");
+      }
+
+      if (!password) {
+        errors.push("パスワードを入力してください");
+      } else if (password.length < 8) {
+        errors.push("パスワードは8文字以上にしてください");
+      }
+
+      if (!terms) errors.push("利用規約に同意してください");
+
+      // 表示処理
+      if (errors.length > 0) {
+        feedback.innerHTML = errors.join("<br>");
+        feedback.className = "mb-4 text-center text-red-600 font-medium";
+      } else {
+        feedback.innerHTML = "登録完了！";
+        feedback.className = "mb-4 text-center text-green-600 font-bold";
+        form.reset();
+      }
+    });
+  </script>
+</body>
+</html>
