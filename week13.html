@@ -196,3 +196,110 @@
   </script>
 </body>
 </html>
+// src/App.jsx
+import React from "react";
+import "./index.css";
+
+const books = [
+  {
+    id: 1,
+    title: "リーダブルコード",
+    author: "Dustin Boswell / Trevor Foucher",
+    rating: 5,
+    comment: "コードを読みやすくするための具体的なテクニックが詰まっていて、初心者にもめちゃくちゃおすすめです。",
+  },
+  {
+    id: 2,
+    title: "Clean Code",
+    author: "Robert C. Martin",
+    rating: 4,
+    comment: "設計やリファクタリングの考え方を学べる一冊。少し難しいけど、じっくり読む価値あり。",
+  },
+  {
+    id: 3,
+    title: "達人プログラマー",
+    author: "Andrew Hunt / David Thomas",
+    rating: 5,
+    comment: "長くプログラミングを続けていくうえでの姿勢や考え方が学べる、人生寄りの技術書。",
+  },
+];
+
+function Header() {
+  return (
+    <header className="w-full border-b border-slate-200 bg-white/80 backdrop-blur">
+      <div className="mx-auto max-w-4xl px-4 py-4 flex items-center justify-between">
+        <h1 className="text-lg sm:text-2xl font-bold text-slate-900">
+          Reactで作る書籍紹介ページ
+        </h1>
+        <span className="text-xs sm:text-sm text-slate-500">
+          POSSE Week14 / Book List
+        </span>
+      </div>
+    </header>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="w-full border-t border-slate-200 mt-8">
+      <div className="mx-auto max-w-4xl px-4 py-4 text-center text-xs sm:text-sm text-slate-500">
+        &copy; {new Date().getFullYear()} My Favorite Books / React + Tailwind + Vite
+      </div>
+    </footer>
+  );
+}
+
+function BookCard({ title, author, rating, comment }) {
+  const stars = "★".repeat(rating) + "☆".repeat(5 - rating);
+
+  return (
+    <article
+      className="group rounded-xl border border-slate-200 bg-white/90 p-4 sm:p-5 shadow-sm hover:shadow-md hover:scale-[1.02] transition-transform duration-150 ease-out"
+    >
+      <h2 className="text-base sm:text-lg font-semibold text-slate-900 mb-1">
+        {title}
+      </h2>
+      <p className="text-xs sm:text-sm text-slate-500 mb-2">著者: {author}</p>
+      <p className="text-sm sm:text-base font-mono text-amber-500 mb-3">
+        評価: <span className="tracking-widest">{stars}</span>
+      </p>
+      <p className="text-sm sm:text-base leading-relaxed text-slate-700">
+        {comment}
+      </p>
+    </article>
+  );
+}
+
+function App() {
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-900">
+      <Header />
+
+      <main className="mx-auto max-w-4xl px-4 py-6 sm:py-8">
+        <section className="mb-6 sm:mb-8">
+          <p className="text-sm sm:text-base text-slate-700">
+            React のコンポーネント・props・map を使って、
+            自分のおすすめ本を並べた書籍紹介ページを作りました。
+            スマホ幅でも読みやすいように、カードレイアウトと余白を意識しています。
+          </p>
+        </section>
+
+        <section className="grid gap-4 sm:gap-6 sm:grid-cols-2">
+          {books.map((book) => (
+            <BookCard
+              key={book.id}          // id を key に使用（データ固有の値）
+              title={book.title}     // string
+              author={book.author}   // string
+              rating={book.rating}   // number (1〜5)
+              comment={book.comment} // string
+            />
+          ))}
+        </section>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
