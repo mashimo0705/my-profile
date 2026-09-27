@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>知大のポートフォリオ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Splide CSS CDN -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
+  />
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans">
+  <!-- ページ全体コンテナ -->
+  <div class="min-h-screen flex flex-col">
+
+    <!-- ヘッダー -->
+    <header class="border-b border-slate-700 bg-slate-900/80 sticky top-0 z-20">
+      <div class="max-w-5xl mx-auto px-4 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div
+            class="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-sm font-bold shadow-lg hover:scale-110 transition-all duration-300"
+          >
+            知大
+          </div>
+          <div>
+            <p class="text-xs uppercase tracking-[0.2em] text-blue-300">
+              Web Learner
+            </p>
+            <h1 class="text-lg font-semibold">
+              「小さく作って、ちゃんと動かす」ポートフォリオ
+            </h1>
+          </div>
+        </div>
+        <nav class="hidden md:flex gap-4 text-sm">
+          <a href="#about" class="hover:text-blue-300 transition-all duration-200">自己紹介</a>
+          <a href="#skills" class="hover:text-blue-300 transition-all duration-200">スキル</a>
+          <a href="#works" class="hover:text-blue-300 transition-all duration-200">作品</a>
+          <a href="#contact" class="hover:text-blue-300 transition-all duration-200">フッター</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- メイン -->
+    <main class="flex-1">
+      <!-- Hero / 自己紹介への導入 -->
+      <section class="max-w-5xl mx-auto px-4 py-10">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div
+            class="group rounded-2xl bg-slate-800/70 p-6 border border-slate-700 hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+          >
+            <p class="text-sm text-blue-300 mb-2">Portfolio 2026</p>
+            <h2 class="text-2xl md:text-3xl font-bold mb-4">
+              学んだことを<br class="md:hidden" />1ページにぎゅっと。
+            </h2>
+            <p class="text-sm leading-relaxed mb-4">
+              POSSEの課題で作成した、Tailwind・CSSアニメーション・Splideを全部載せた
+              1ページポートフォリオです。<br />
+              「とりあえず動くものを作る」をテーマに、シンプルだけど触っていて気持ちいいUIを目指しました。
+            </p>
+            <div class="flex flex-wrap gap-2 text-xs">
+              <span class="px-3 py-1 rounded-full bg-blue-500/20 text-blue-300">
+                HTML
+              </span>
+              <span class="px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300">
+                Tailwind CSS
+              </span>
+              <span class="px-3 py-1 rounded-full bg-purple-500/20 text-purple-300">
+                CSS Animation
+              </span>
+              <span class="px-3 py-1 rounded-full bg-pink-500/20 text-pink-300">
+                Splide Slider
+              </span>
+            </div>
+          </div>
+
+          <div class="flex justify-center md:justify-end">
+            <div
+              class="relative w-56 h-56 rounded-3xl bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center overflow-hidden shadow-2xl hover:scale-105 transition-all duration-300"
+            >
+              <div class="absolute inset-0 bg-slate-900/40"></div>
+              <div class="relative text-center">
+                <p class="text-xs tracking-[0.3em] uppercase text-slate-200 mb-2">
+                  POSSE
+                </p>
+                <p class="text-3xl font-bold mb-1">知大</p>
+                <p class="text-xs text-slate-100">
+                  Frontend<br />Practice
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 自己紹介 -->
+      <section id="about" class="max-w-5xl mx-auto px-4 py-10">
+        <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+          <span class="w-1.5 h-6 bg-blue-400 rounded-full"></span> 自己紹介
+        </h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="md:col-span-2 text-sm leading-relaxed">
+            <p class="mb-3">
+              はじめまして、知大です。POSSEでフロントエンドの基礎を学びながら、
+              「コードの流れを言葉で説明できるようになる」ことを目標にしています。
+            </p>
+            <p class="mb-3">
+              まだ小さなコンポーネントレベルの実装が中心ですが、
+              Tailwindでレイアウトを整えたり、Splideでスライダーを動かしたりと、
+              少しずつ「見て楽しい・触って楽しい」UIを作る練習をしています。
+            </p>
+            <p>
+              サッカーが好きで、ジュビロ磐田の応援もしています。
+              コードもサッカーも、地味な基礎練習を積み重ねるスタイルです。
+            </p>
+          </div>
+          <div class="text-sm bg-slate-800/70 border border-slate-700 rounded-xl p-4">
+            <p class="text-xs text-slate-400 mb-2">今の自分のステータス</p>
+            <ul class="space-y-2">
+              <li class="flex justify-between">
+                <span>HTML構造</span>
+                <span class="text-blue-300">初級</span>
+              </li>
+              <li class="flex justify-between">
+                <span>Tailwind</span>
+                <span class="text-blue-300">初級〜中級</span>
+              </li>
+              <li class="flex justify-between">
+                <span>JS DOM操作</span>
+                <span class="text-blue-300">初級</span>
+              </li>
+              <li class="flex justify-between">
+                <span>CSSアニメーション</span>
+                <span class="text-blue-300">練習中</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- スキルリスト -->
+      <section id="skills" class="max-w-5xl mx-auto px-4 py-10">
+        <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+          <span class="w-1.5 h-6 bg-emerald-400 rounded-full"></span> スキルリスト（PH1）
+        </h2>
+        <div class="grid md:grid-cols-3 gap-6 text-sm">
+          <div class="bg-slate-800/70 border border-slate-700 rounded-xl p-4">
+            <h3 class="font-semibold mb-2">HTML</h3>
+            <ul class="space-y-1 list-disc list-inside">
+              <li>セマンティックなタグの使い分け</li>
+              <li>ヘッダー・メイン・フッター構造</li>
+              <li>リスト・リンク・画像の配置</li>
+            </ul>
+          </div>
+          <div class="bg-slate-800/70 border border-slate-700 rounded-xl p-4">
+            <h3 class="font-semibold mb-2">Tailwind CSS</h3>
+            <ul class="space-y-1 list-disc list-inside">
+              <li>レイアウト（flex / grid）</li>
+              <li>余白・色・タイポグラフィ</li>
+              <li>レスポンシブ（sm / md / lg）</li>
+            </ul>
+          </div>
+          <div class="bg-slate-800/70 border border-slate-700 rounded-xl p-4">
+            <h3 class="font-semibold mb-2">アニメーション & Splide</h3>
+            <ul class="space-y-1 list-disc list-inside">
+              <li>hover:scale / hover:-translate-y</li>
+              <li>transition-all / duration-xxx</li>
+              <li>Splideで作品スライダーを実装</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 作品スライダー -->
+      <section id="works" class="max-w-5xl mx-auto px-4 py-10">
+        <h2 class="text-xl font-semibold mb-4 flex items-center gap-2">
+          <span class="w-1.5 h-6 bg-purple-400 rounded-full"></span> 作品スライダー
+        </h2>
+
+        <!-- Splide本体 -->
+        <div class="splide" aria-label="知大の作品スライダー">
+          <div class="splide__track">
+            <ul class="splide__list">
+              <!-- スライド1 -->
+              <li class="splide__slide">
+                <div
+                  class="group relative overflow-hidden rounded-2xl bg-slate-800 border border-slate-700"
+                >
+                  <img
+                    src="https://via.placeholder.com/800x450.png?text=Work+1"
+                    alt="作品1の仮画像"
+                    class="w-full h-48 md:h-64 object-cover group-hover:scale-105 transition-all duration-300"
+                  />
+                  <!-- オーバーレイ -->
+                  <div
+                    class="absolute inset-0 bg-slate-900/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
+                  >
+                    <span
+                      class="px-4 py-2 rounded-full bg-blue-500 text-xs md:text-sm font-semibold"
+                    >
+                      詳細を見る（仮）
+                    </span>
+                  </div>
+                  <div class="p-4 text-sm">
+                    <p class="text-xs text-slate-400 mb-1">Work 01</p>
+                    <h3 class="font-semibold mb-1">Tailwind練習用レイアウト</h3>
+                    <p class="text-xs text-slate-300">
+                      グリッドとレスポンシブを意識した、練習用のカードレイアウトです。
+                    </p>
+                  </div>
+                </div>
+              </li>
+
+              <!-- スライド2 -->
+              <li class="splide__slide">
+                <div
+                  class="group relative overflow-hidden rounded-2xl bg-slate-800 border border-slate-700"
+                >
+                  <img
+                    src="https://via.placeholder.com/800x450.png?text=Work+2"
+                    alt="作品2の仮画像"
+                    class="w-full h-48 md:h-64 object-cover group-hover:scale-105 transition-all duration-300"
+                  />
+                  <div
+                    class="absolute inset-0 bg-slate-900/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
+                  >
+                    <span
+                      class="px-4 py-2 rounded-full bg-purple-500 text-xs md:text-sm font-semibold"
+                    >
+                      詳細を見る（仮）
+                    </span>
+                  </div>
+                  <div class="p-4 text-sm">
+                    <p class="text-xs text-slate-400 mb-1">Work 02</p>
+                    <h3 class="font-semibold mb-1">Splideスライダー実装</h3>
+                    <p class="text-xs text-slate-300">
+                      Splideの基本クラスと初期化を使った、作品紹介用スライダーです。
+                    </p>
+                  </div>
+                </div>
+              </li>
+
+              <!-- スライド3（任意で追加） -->
+              <li class="splide__slide">
+                <div
+                  class="group relative overflow-hidden rounded-2xl bg-slate-800 border border-slate-700"
+                >
+                  <img
+                    src="https://via.placeholder.com/800x450.png?text=Work+3"
+                    alt="作品3の仮画像"
+                    class="w-full h-48 md:h-64 object-cover group-hover:scale-105 transition-all duration-300"
+                  />
+                  <div
+                    class="absolute inset-0 bg-slate-900/70 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300"
+                  >
+                    <span
+                      class="px-4 py-2 rounded-full bg-emerald-500 text-xs md:text-sm font-semibold"
+                    >
+                      詳細を見る（仮）
+                    </span>
+                  </div>
+                  <div class="p-4 text-sm">
+                    <p class="text-xs text-slate-400 mb-1">Work 03</p>
+                    <h3 class="font-semibold mb-1">ホバーアニメーション練習</h3>
+                    <p class="text-xs text-slate-300">
+                      hover:scale と hover:-translate-y を組み合わせたカードUIの練習です。
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- フッター -->
+      <footer
+        id="contact"
+        class="mt-10 border-t border-slate-700 bg-slate-900/80"
+      >
+        <div class="max-w-5xl mx-auto px-4 py-6 text-sm flex flex-col md:flex-row justify-between gap-4">
+          <div>
+            <p class="font-semibold">知大のポートフォリオ（POSSE課題）</p>
+            <p class="text-xs text-slate-400">
+              このページは、PH1で学んだ内容を1ページにまとめた練習用サイトです。
+            </p>
+          </div>
+          <div class="text-xs text-slate-400">
+            <p>表示確認：スマホ幅 375px / PC幅 1280px</p>
+            <p>GitHub Pages 公開想定（URLはPRで記載）</p>
+          </div>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <!-- Splide JS CDN（body閉じタグ直前） -->
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+
+  <!-- Splide 初期化コード -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      new Splide('.splide', {
+        type: 'loop',
+        autoplay: true,
+        interval: 4000,
+        pauseOnHover: true,
+        pagination: true,
+        arrows: true,
+      }).mount();
+    });
+  </script>
+</body>
+</html>
